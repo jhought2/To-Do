@@ -80,10 +80,17 @@ li {
     padding: 10px;
     border-bottom: 1px dashed #ccc;
     background-color: #fffae6;
+    position: relative;
 }
 
 li:last-child {
     border-bottom: none;
+}
+
+li .task-text {
+    flex-grow: 1;
+    padding-right: 10px;
+    word-break: break-word;
 }
 
 .button-group {
@@ -93,6 +100,7 @@ li:last-child {
 
 .button-group button {
     flex: none;
+    width: 60px;
 }
 
 .edit {
