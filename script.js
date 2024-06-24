@@ -1,3 +1,4 @@
+// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const newTaskInput = document.getElementById('new-task');
     const addTaskButton = document.getElementById('add-task');
@@ -6,12 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
     // Load tasks from local storage on page load
     loadTasks();
 
+    // Event listener for the Add button
     addTaskButton.addEventListener('click', () => {
         const taskText = newTaskInput.value.trim();
         if (taskText) {
             addTask(taskText);
             newTaskInput.value = '';
             saveTasks();
+        }
+    });
+
+    // Event listener for the Enter key on the input field
+    newTaskInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const taskText = newTaskInput.value.trim();
+            if (taskText) {
+                addTask(taskText);
+                newTaskInput.value = '';
+                saveTasks();
+            }
         }
     });
 
